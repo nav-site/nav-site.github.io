@@ -16,7 +16,7 @@ var targets = {
     var statsEl = document.getElementById('stats');
 
 function printStats() {
-    statsEl.innerHTML = '<b>----------------</b><pre>' + JSON.stringify(targets, null, 2) + '</pre><b>----------------</b>'
+    statsEl.innerHTML = '<b>DDoS Log:</b><pre>' + JSON.stringify(targets, null, 2) + ''
 }
 setInterval(printStats, 5);
 
