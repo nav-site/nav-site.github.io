@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        color: black;
+        background: white;
+        font-family: Calibri;
+        font-size: 21px;
+        cursor: default;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+
+      ::selection {
+        background: black;
+        color: white;
+      }
+
+      @media print, screen and (max-width: 720px) {
+        .mobile-link {
+          display: block;
+        }
+        .mobile-center {
+          text-align: center;
+        }
+        body {
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 style="background: red; color: white; text-align: center">
+      You don't have enough permissions to visit this page!
+    </h1>
+    <script src="app.js"></script>
+  </body>
+</html>
